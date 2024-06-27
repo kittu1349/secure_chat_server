@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+{% block title %}Register{%endblock%}
+{% block content%}
+    {% with messages = get_flashed_messages() %}        <!-- this part is important, it flashes the message on the html page -->
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+<div class="content">
+    <form action="" method="POST">
+        <p>Userame: </p>
+        <p><input type="text" name="username" />
+        <p>Password: </p>
+        <p><input type="password" name="password" />
+        <input type="submit" value="submit" /></p>
+    </form>
+    <p>Already have an account?<a href="{{url_for('login')}}">Login Here</a></p>
+</div>
+{%endblock%}
