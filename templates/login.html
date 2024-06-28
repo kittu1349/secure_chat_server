@@ -1,11 +1,21 @@
 {% extends "base.html"%}
 {% block title %}Login{%endblock%}
 {% block content%}
-    {% with messages = get_flashed_messages() %}        <!-- this part is important, it flashes the message on the html page -->
+    {% with messages = get_flashed_messages() %}  
         {% if messages %}
             {% for msg in messages %}
-                <p>{{msg}}</p>
+            <div class="flash-message">{{msg}}</div>
             {% endfor %}
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const flashMessages = document.querySelectorAll('.flash-message');
+                    flashMessages.forEach(function(message) {
+                        setTimeout(function() {
+                            message.classList.add('fade-out');
+                        }, 2000); // 2000 milliseconds = 2 seconds
+                    });
+                });
+            </script>
         {% endif %}
     {% endwith %}
 <div class="content">
