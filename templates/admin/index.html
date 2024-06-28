@@ -1,0 +1,27 @@
+{% extends "admin/master.html" %}
+
+{%block body%}
+<div style="display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center; font-family: 'Courier New', Courier, monospace;"><h1>Welcome to admin dashboard!!</h1>
+</div>
+<a style="position: fixed;
+bottom: 2vh;
+left: 2vh;
+padding: 1vh 2vw;
+background-color: blue;
+color: yellow;
+border: none;
+border-radius: 5px;
+cursor: pointer;" href="/dashboard">Go back to Dashboard</a>
+<a style="position: fixed;
+bottom: 2vh;
+right: 2vh;
+padding: 1vh 2vw;
+background-color: red;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;" href="/logout">Logout</a>
+{%endblock%}
