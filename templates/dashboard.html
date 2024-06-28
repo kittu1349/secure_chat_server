@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% block title %}Dashboard{%endblock%}
 {%block content%}
+    {% with messages = get_flashed_messages() %}  
+        {% if messages %}
+            {% for msg in messages %}
+            <div class="flash-message">{{msg}}</div>
+            {% endfor %}
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const flashMessages = document.querySelectorAll('.flash-message');
+                    flashMessages.forEach(function(message) {
+                        setTimeout(function() {
+                            message.classList.add('fade-out');
+                        }, 2000); // 2000 milliseconds = 2 seconds
+                    });
+                });
+            </script>
+        {% endif %}
+    {% endwith %}
 <div class="content">
     <h1>Hello {{user}}, you are logged in!!</h1>
 </div>
